@@ -1,0 +1,15 @@
+.Result {
+    bottom: 45px;
+    background: #ececec;
+    left: 0;
+    padding: 7px 7px 10px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.Result .Result__text {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 7px 0 0;
+}

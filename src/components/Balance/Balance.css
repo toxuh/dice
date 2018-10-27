@@ -1,0 +1,13 @@
+.Balance {
+    background: #ececec;
+    padding: 7px 7px 10px;
+    text-align: right;
+}
+
+.Balance__amount {
+    margin: 0 0 5px;
+}
+
+.Balance__amount b {
+    font-size: 18px;
+}

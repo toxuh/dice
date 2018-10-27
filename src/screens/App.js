@@ -5,12 +5,17 @@ import { bind } from 'decko';
 
 import Balance from '../components/Balance';
 import Dice from '../components/Dice';
+import Result from '../components/Result';
 
 import {
     useFreeCredits,
     setUserNumber,
-    generateNumber
+    generateNumber,
+    setBet,
+    changeBalance
 } from '../actions';
+
+import './App.css';
 
 class App extends Component {
     static propTypes = {
@@ -19,6 +24,7 @@ class App extends Component {
         generatedNumber: PropTypes.number,
         generatedHash: PropTypes.string,
         userNumber: PropTypes.number,
+        userBet: PropTypes.number,
         descriptions: PropTypes.shape({
             betHi: PropTypes.shape({
                 chance: PropTypes.number,
@@ -51,16 +57,39 @@ class App extends Component {
         dispatch(setUserNumber(number));
     }
 
+    @bind
+    onSetBet(amount) {
+        const { dispatch } = this.props;
+
+        dispatch(setBet(amount))
+    }
+
+    @bind
+    onChangeBalance(amount) {
+        const { dispatch } = this.props;
+
+        dispatch(changeBalance(amount))
+    }
+
+    @bind
+    onRegenerateNumber() {
+        const { dispatch } = this.props;
+
+        dispatch(generateNumber());
+    }
+
     render() {
         const {
             balance,
             userNumber,
+            userBet,
             descriptions,
-            generatedHash
+            generatedHash,
+            generatedNumber
         } = this.props;
 
         return (
-            <div className="wrapper">
+            <div className="App">
                 <Balance
                     userBalance={balance}
                     useFreeCredits={this.onUseFreeCredits}
@@ -68,11 +97,16 @@ class App extends Component {
                 <Dice
                     userBalance={balance}
                     userNumber={userNumber}
+                    userBet={userBet}
                     descriptions={descriptions}
+                    generatedNumber={generatedNumber}
                     setUserNumber={this.onSetUserNumber}
+                    setUserBet={this.onSetBet}
+                    changeBalance={this.onChangeBalance}
+                    generateNumber={this.onRegenerateNumber}
                 />
                 {generatedHash && (
-                    <p>Generated number hash: {generatedHash}</p>
+                    <div className="App__hash">Provably Fair Hash:<br/><b>{generatedHash}</b></div>
                 )}
             </div>
         )
@@ -85,12 +119,14 @@ const mapStateToProps = (state) => {
         generatedNumber,
         generatedHash,
         userNumber,
+        userBet,
         descriptions
     } = state.app || {
         balance: 0,
         generatedNumber: null,
         generatedHash: '',
         userNumber: null,
+        userBet: null,
         descriptions: {
             betHi: {
                 chance: null,
@@ -108,6 +144,7 @@ const mapStateToProps = (state) => {
         generatedNumber,
         generatedHash,
         userNumber,
+        userBet,
         descriptions
     };
 };

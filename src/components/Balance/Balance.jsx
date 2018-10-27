@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bind } from 'decko';
 
+import './Balance.css';
+
 class Balance extends Component {
     static propTypes = {
         userBalance: PropTypes.number.isRequired,
@@ -28,7 +30,7 @@ class Balance extends Component {
     render() {
         return (
             <div className="Balance">
-                Balance: { this.props.userBalance } credits
+                <p className="Balance__amount">Balance: <b>{ this.props.userBalance }</b> credits</p>
                 <button
                     type="button"
                     onClick={this.addCredits}

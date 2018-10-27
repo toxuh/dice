@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+.App {
+    border: 2px solid #777;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    height: 550px;
+    position: relative;
+    width: 400px;
+}
+
+.App__hash {
+    background: #ececec;
+    bottom: 0;
+    font-size: 12px;
+    left: 0;
+    line-height: 16px;
+    padding: 7px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}

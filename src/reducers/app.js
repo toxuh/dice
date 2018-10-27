@@ -3,6 +3,7 @@ const defaultState = {
     generatedNumber: null,
     generatedHash: '',
     userNumber: null,
+    userBet: null,
     descriptions: {
         betHi: {
             chance: null,
@@ -24,7 +25,7 @@ export default (state = defaultState, action) => {
                 generatedHash: action.hash,
             };
         }
-        case 'USE_FREE_CREDITS': {
+        case 'CHANGE_BALANCE': {
             return {
                 ...state,
                 balance: action.data
@@ -46,6 +47,12 @@ export default (state = defaultState, action) => {
                         payout: desc.betLo.payout
                     }
                 }
+            }
+        }
+        case 'SET_BET': {
+            return {
+                ...state,
+                userBet: action.data
             }
         }
         default: {

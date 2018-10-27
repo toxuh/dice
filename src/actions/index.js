@@ -1,10 +1,10 @@
-import sha256 from 'sha256';
+import md5 from "react-native-md5";
 
 import { FREE_CREDITS_AMOUNT } from '../constants';
 
 export const generateNumber = () => {
     const number = Math.floor(Math.random() * 100);
-    const hash = sha256(number);
+    const hash = md5.hex_md5(number);
 
     return {
         type: 'GENERATE_NUMBER',
@@ -15,7 +15,7 @@ export const generateNumber = () => {
 
 export const useFreeCredits = () => {
     return {
-        type: 'USE_FREE_CREDITS',
+        type: 'CHANGE_BALANCE',
         data: FREE_CREDITS_AMOUNT
     };
 };
@@ -36,5 +36,19 @@ export const setUserNumber = (number) => {
         type: 'SET_USER_DATA',
         number,
         desc
+    };
+};
+
+export const setBet = (amount) => {
+    return {
+        type: 'SET_BET',
+        data: amount
+    };
+};
+
+export const changeBalance = (amount) => {
+    return {
+        type: 'CHANGE_BALANCE',
+        data: Math.round(amount)
     };
 };

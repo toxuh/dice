@@ -1,0 +1,42 @@
+.Dice {
+    height: 485px;
+    padding: 10px;
+    position: relative;
+}
+
+.Dice .Dice__holder {
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.Dice .Dice__label {
+    display: inline-block;
+    width: 150px;
+}
+
+.Dice .Dice__input {
+    padding: 5px 7px;
+    width: 100px;
+}
+
+.Dice .Dice__play {
+    display: flex;
+    margin-top: 35px;
+}
+
+.Dice .Dice__bet {
+    flex: 50%;
+    text-align: center;
+}
+
+.Dice .Dice__button {
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 25px;
+    text-align: center;
+    width: 100px;
+}
+
+.Dice .Dice__statistics {
+    padding: 0 20px;
+}
