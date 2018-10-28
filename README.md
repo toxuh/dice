@@ -6,7 +6,7 @@ Run `npm install` to install npm packages. Run `webpack` to compile.
 
 **Running**
 
-Run `index.html` to play.
+Run `index.html` or go to [example page](https://toxuh.github.io/dice/) to play.
 
 *Rules:*
 
